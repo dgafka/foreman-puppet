@@ -1,0 +1,30 @@
+### File managed with puppet ###
+## Module:           'foreman'
+
+
+:unattended: true
+:login: false
+:require_ssl: true
+:locations_enabled: false
+:organizations_enabled: false
+:puppetrun: false
+:puppetconfdir: /etc/puppet/puppet.conf
+
+# The following values are used for providing default settings during db migrate
+:oauth_active: true
+:oauth_map_users: false
+:oauth_consumer_key: dgFDpyoqj3zHhbhMuU4TvaN3txg2tqwT
+:oauth_consumer_secret: N3UBN9NXkDPtuB8Jfvs8DjYvTycsdcQe
+
+# Websockets
+:websockets_encrypt: on
+:websockets_ssl_key: /var/lib/puppet/ssl/private_keys/puppet.pem
+:websockets_ssl_cert: /var/lib/puppet/ssl/certs/puppet.pem
+
+# Log settings for the current environment can be adjusted by adding them
+# here. For example, if you want to increase the log level.
+:logging:
+  :level: info
+
+# Individual logging types can be toggled on/off here
+:loggers:

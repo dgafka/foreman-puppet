@@ -1,0 +1,30 @@
+version: "2"
+
+services:
+  puppet:
+    build:
+      context: "./image/Foreman"
+      args:
+        dockerhost: "puppet"
+        add-host: "puppet:127.0.0.1"
+    hostname: puppet
+    ports:
+      - "443:443"
+    volumes:
+      - "$PWD/modules:/etc/puppet/modules"
+      - "$PWD/manifests:/etc/puppet/manifests"
+    networks:
+      default:
+    command: sleep 9999
+  agent01:
+    build: "image/Agent"
+    hostname: agent01
+    networks:
+      default:
+    depends_on:
+      - puppet
+    restart: always
+
+networks:
+  default:
+    driver: bridge

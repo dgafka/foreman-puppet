@@ -1,0 +1,4 @@
+# /etc/apt/preferences.d/00-puppet.pref
+Package: puppet puppet-common
+Pin: version 3.8*
+Pin-Priority: 501
